@@ -1,5 +1,14 @@
+const {
+  getAllUser,
+  getOneUser,
+  createUser,
+  updateUser,
+  deleteUser,
+} = require('./user.service');
+
 function handlerAllUser(req, res) {
-  res.json({msg: 'primer controlador para user!'});
+  const users = getAllUser();
+  res.json(users);
 }
 
 module.exports = {
