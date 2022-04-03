@@ -13,6 +13,11 @@ const UserSchema = Schema({
     trim: true,
     lowercase: true,
   },
+  userName: {
+    type: String,
+    required: true,
+    lowercase: true,
+  },
   email: {
     type: String,
     required: true,
@@ -31,6 +36,10 @@ const UserSchema = Schema({
   },
   avatar: {
     type: String,
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false,
   },
   role: {
     type: String,
