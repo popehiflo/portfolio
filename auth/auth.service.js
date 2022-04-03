@@ -1,6 +1,6 @@
 const UserModel = require("../api/user/user.model");
 
-async function registerUser(user) {
+async function signUpUser(user) {
   const { email } = user;
   const existEmail = await UserModel.findOne({ email });
 
@@ -12,5 +12,5 @@ async function registerUser(user) {
 }
 
 module.exports = {
-  registerUser
+  signUpUser
 }

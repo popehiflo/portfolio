@@ -1,13 +1,13 @@
 const {
-  registerUser,
+  signUpUser,
 } = require('../auth.service');
 
-async function handlerRegisterUser(req, res) {
+async function handlerSignUpUser(req, res) {
   const newUser = req.body;
 
   try {
     // TODO: manejar, validar campos requeridos/obligatorios al crear
-    const user = await registerUser(newUser);
+    const user = await signUpUser(newUser);
     if (!user) {
       res
         .status(400)
@@ -21,5 +21,5 @@ async function handlerRegisterUser(req, res) {
 }
 
 module.exports = {
-  handlerRegisterUser,
+  handlerSignUpUser,
 };
