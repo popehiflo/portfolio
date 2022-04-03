@@ -5,28 +5,35 @@ const ServiceSchema = new Schema(
     title: {
       type: String,
       required: true,
-      unique: true,
       trim: true,
-      uppercase: true,
     },
     description: {
       type: String,
       required: true,
       trim: true,
     },
+    img: {
+      type: String,
+      required: true,
+    },
     categories: {
       type: Array,
     },
-    size: {
+    duration: {
       type: String,
     },
-    color: {
+    media: {
       type: String,
     },
     price: {
       type: Number,
       required: true,
-    }
+    },
+    userId: {
+      type: String,
+      required: true,
+      default: "ID DE QUIEN CREO EL SERVICIO",
+    },
   },
   {
     timestamps: true,

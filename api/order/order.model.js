@@ -21,7 +21,7 @@ const OrderSchema = new Schema(
       type: Number,
       required: true,
     },
-    address: {
+    appointment: {
       type: Object,
       required: true,
     },
