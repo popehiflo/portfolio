@@ -1,6 +1,7 @@
 const {
   signUpUser,
   signInUser,
+  signToken,
 } = require('../auth.service');
 
 async function handlerSignUpUser(req, res) {
@@ -31,9 +32,11 @@ async function handlerSignInUser(req, res) {
         .status(404)
         .json({ message: `invalid email or password` });
     }
+    // token
+    const accessToken = signToken(user.profile);
     // no se debe devolver el password
     const { password, ...userWithoutPassword } = user.toObject();
-    return res.status(200).json(userWithoutPassword);
+    return res.status(200).json({...userWithoutPassword, accessToken});
   } catch (error) {
     res.status(500).json(error);
   }
