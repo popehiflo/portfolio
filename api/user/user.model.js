@@ -60,4 +60,16 @@ const UserSchema = Schema({
   versionKey: false,
 });
 
+UserSchema.virtual("profile").get(function () {
+  const { _id, firstName, lastName, userName, email, role, isAdmin } = this;
+  return {
+    _id,
+    fullName: `${firstName} ${lastName}`,
+    userName,
+    email,
+    role,
+    isAdmin,
+  };
+});
+
 module.exports = model('User', UserSchema);

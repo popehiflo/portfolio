@@ -1,5 +1,6 @@
 const UserModel = require("../api/user/user.model");
 const CryptoJS = require("crypto-js");
+const JWT = require("jsonwebtoken");
 
 async function signUpUser(user) {
   const { email, password } = user;
@@ -33,7 +34,15 @@ async function signInUser(user) {
   }
 }
 
+function signToken(payload) {
+  const token = JWT.sign(payload, process.env.JWT_SECRET_KEY, {
+    expiresIn: "1d",
+  });
+  return token;
+}
+
 module.exports = {
   signUpUser,
   signInUser,
+  signToken,
 }
